@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}"
+>
+<head>
+
+
+<!-- kakaoMap key -->
+<script type="text/javascript"
+	src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=98fb16dd10fac1f048b0114b6c29ab02&libraries=services"
+></script>
+
+<!-- This CSS -->
+<link rel="stylesheet" href="/css/inputPage.css">
+
+</head>
+
+<body>
+	<div layout:fragment="content" class="content">
+
+		<h2>공지사항 게시판</h2>
+
+		<br>
+		<hr>
+		<br>
+
+		<form th:action="@{/review/register}" th:method="post" id="form1">
+
+			<!-- 제목 -->
+			<div class="form-group">
+				<label for="exampleFormControlFile1">제목</label> <input type="text" class="form-control"
+					placeholder=""
+				>
+			</div>
+			<hr>
+
+			<!-- 이미지 -->
+			<div class="form-group">
+				<label for="formFile" class="form-label mt-4">이미지</label>
+      			<input class="form-control" type="file" id="formFile" name="img">
+			</div>
+			<hr>
+
+			<!-- textarea -->
+			<div class="form-group">
+				<textarea class="form-control" placeholder="" id="floatingTextarea2"></textarea>
+			</div>
+			<hr>
+			<div class="d-flex justify-content-center">
+				<button type="button" class="btn btn-success register_b">확인</button>
+				<button type="button" class="btn btn-secondary cancel_b">취소</button>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+<!-- 각 페이지의 스크립트가 작성될 위치 -->
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+		var actionForm = $("form"); //form 태그 객체
+
+		// 확인 버튼    
+		$(".register_b").click(function() {
+			window.location.href = '/announce/list'
+		})
+
+		// 취소 버튼    
+		$(".cancel_b").click(function() {
+			window.location.href = '/announce/list'
+		})
+	    
+		
+	</script>
+</th:block>
+
+</html>

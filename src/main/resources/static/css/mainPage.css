@@ -1,0 +1,54 @@
+ .img1 {
+            width: 200px;
+            height: 250px;
+        }
+
+        .box1 {
+            width: 200px;
+            height: 250px;
+        }
+
+        #map {
+            width: 100%;
+            height: 350px;
+        }
+
+        .member {
+            text-align: center;
+            margin-bottom: 20px;
+            background: #fff;
+            border: 1px solid #eef0ef;
+            height: 600px;
+        }
+
+        .img2 {
+            width: 40px;
+            height: 40px;
+            bottom: 0;
+            margin: 10px 0 0 20px;
+
+        }
+        
+.login {
+	font-weight: bold;
+}
+
+.login-bottom {
+	font-size: small;
+	font-weight: bold;
+}
+
+.member {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.btn, .form-control {
+	margin: 5px 0;
+}
+
+header, footer {
+	width: 100%;
+}

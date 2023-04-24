@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.slim.js"
+	integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY="
+	crossorigin="anonymous"></script>
+<!-- pikaday 데이트 픽커 js -->
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+<!-- pikaday 데이트 픽커 css -->
+</head>
+<body>
+<div layout:fragment="content" class="content">
+
+<div class="container3">
+  <div>
+<h1> 회원관리</h1>
+
+
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">NO.</th>
+      <th scope="col">아이디</th>
+      <th scope="col">이름</th>
+      <th scope="col">등록일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="dto : ${dto}" class="table-active">
+      <th scope="row">
+       <a th:href="@{/member/memberInfo(mID = ${dto.mID}>">[[$dto.mID]]</a>
+      </th>
+      <td>[[${dto.ID}]]</td>
+      <td>Column content</td>
+      <td>Column content</td>
+    </tr>
+  </tbody>   
+</table>
+
+<div>
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="#">&laquo;</a>
+    </li>
+    <li class="page-item active">
+      <a class="page-link" href="#">1</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">3</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">4</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">5</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</div>
+
+	<div class = "search">
+ 	<form class="d-flex">
+        <input class="form-control me-sm-2" type="search" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      </div>
+</div>
+</div>
+</div>
+</body>
+</html>

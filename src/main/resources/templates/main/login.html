@@ -1,0 +1,60 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+    
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+
+</head>
+<body>
+<div layout:fragment="content" class="content" style="background-color: white;" >
+<div id="container" class="container"  style="background-color: white;    padding-top: 100px;padding-bottom: 100px;">
+    <!-- FORM SECTION -->
+    <div >
+
+            <br><a><strong>Login</strong> </a>
+
+
+        <!-- SIGN IN -->
+        <div class="col align-items-center flex-col sign-in" >
+            <div class="form-wrapper align-items-center">
+                <div class="form sign-in">
+                    <div class="input-group">
+                        <input type="text" placeholder="Username">
+                    </div>
+                    <div class="input-group">
+
+                        <input type="password" placeholder="Password">
+                    </div>
+                    <button type="button" class="btn btn-success">로그인</button>
+                    <button type="button" class="btn btn-success" onclick="location.href='register'">회원가입</button>
+                    
+
+
+                    <p>
+                        <b>Forgot password?</b>
+                        <br><a class="text-primary">Click here</a>
+                    </p>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" th:href="@{/css/register.css}">
+    
+    <!-- pikaday -->
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+
+<script th:inline="javascript">
+	/* 비밀번호 체크 */
+	function pwchk() {
+	
+		var password = $("#input-password");
+		var password2 = $('#input-password-confirm');
+		var pwcheck = $('#pwcheck');
+		var text = $('#pwcheck');
+
+		if (password.val() == password2.val()) {
+			password2.attr("class", "form-control is-valid");
+			text.attr("class", "valid-feedback");
+			text.text("비밀번호 일치");
+			pwcheck.css("display", "inline");
+		} else {
+			password2.attr("class", "form-control is-invalid");
+			text.attr("class", "invalid-feedback");
+			text.text("비밀번호 불일치");
+			pwcheck.css("display", "inline");
+		}
+	}
+	
+</script>
+
+</head>
+<body>
+<div layout:fragment="content" class="content">
+	<div class="container">
+	    <fieldset>
+	    	<h1>회원가입</h1>
+	    		<form  method="post">
+		        <div class="form-group">
+		            <label for="input-id" class="col-sm-2 col-form-label">아이디</label>
+		            <div class="col-sm-5">
+		                <input type="text" class="form-control" id="input-id"	name="userId" placeholder="아이디">
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-password" class="col-sm-2 col-form-label">비밀번호</label>
+		            <div class="col-sm-5">
+		                <input type="password" class="form-control" id="input-password" name="password"	placeholder="비밀번호">
+		            </div>
+		        </div>
+		        <div class="form-group has-danger" id="pw-div">
+		            <label for="input-password-confirm" class="from-label mt-4">비밀번호 확인</label>
+		            <div class="col-sm-5">
+		                <input type="password" class="form-control is-invalid" id="input-password-confirm" placeholder="비밀번호 확인"
+		                onkeyup="pwchk()">
+		                <div id="pwcheck">비밀번호 불일치</div>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-name" class="col-sm-2 col-form-label">이름</label>
+		            <div class="col-sm-5">
+		                <input type="text" class="form-control" id="input-name"	name="name"	 placeholder="이름">
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-gender" class="col-sm-2 col-form-label">성별</label>
+		            <div class="col-sm-5">
+		                <select class="form-control" id="input-gender" name="gender">
+		                    <option value="male">남성</option>
+		                    <option value="female">여성</option>
+		                </select>
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-email" class="col-sm-2 col-form-label">이메일</label>
+		            <div class="col-sm-5">
+		                <input type="email" class="form-control" id="input-email" name="email"    placeholder="이메일">
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-phone" class="col-sm-2 col-form-label">전화번호</label>
+		            <div class="col-sm-5">
+		                <input type="tel" class="form-control" id="input-phone" name="tel" 		 placeholder="전화번호" >
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="datepicker" class="col-sm-2 col-form-label">생년월일</label>
+		            <div class="col-sm-5">
+		                <input type="text" id="datepicker" class="form-control" name="birth" placeholder="생년월일">
+		                
+		                <!-- 데이트 피커 -->
+		                <script type="text/javascript">
+						var picker = new Pikaday({
+						    field: document.getElementById('datepicker'),
+						    format: 'D/M/YYYY',
+						    yearRange : [1900,2023],
+						    toString(date, format) {
+						        // you should do formatting based on the passed format,
+						        // but we will just return 'D/M/YYYY' for simplicity
+						        const day = date.getDate();
+						        const month = date.getMonth() + 1;
+						        const year = date.getFullYear();
+						        return `${year}/${month}/${day}`;
+						    },
+						    parse(dateString, format) {
+						        // dateString is the result of `toString` method
+						        const parts = dateString.split('/');
+						        const day = parseInt(parts[0], 10);
+						        const month = parseInt(parts[1], 10) - 1;
+						        const year = parseInt(parts[2], 10);
+						        return new Date(year, month, day);
+						    }
+						});
+						</script>
+		                
+		            </div>
+		        </div>
+		        <div class="form-group">
+		            <label for="input-email" class="col-sm-2 col-form-label">자기소개</label>
+		            <div class="col-sm-8">
+		                <textarea  cols="50" rows="5" 	name="intro"		class="form-control"></textarea>
+		            </div>
+		        </div>
+		         
+		         <br>
+		         <input type="submit" class="btn btn-success" value="회원가입">
+
+		    </form>
+	    </fieldset>
+	</div>
+</div>
+
+
+<script>
+    $(function(){
+        $('.datepicker').datepicker();
+    })
+</script>
+</body>

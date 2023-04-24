@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:replace="layout/config.html :: configFragment"></th:block>
+
+<body>
+    <!-- header fragment 사용 -->
+    <th:block th:replace="~{layout/header.html :: headerFragment}"></th:block>
+    <!-- content fragment 선언 -->
+    <th:block layout:fragment="content"></th:block>
+    <!-- footer fragment 사용 -->
+    <th:block th:replace="~{layout/footer.html :: footerFragment}"></th:block>
+</body>
+	<th:block layout:fragment="script"></th:block>
+</html>

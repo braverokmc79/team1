@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+	<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+	<!-- pikaday 데이트 픽커 js -->
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+	<!-- pikaday 데이트 픽커 css -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+</head>
+
+<body>
+<div layout:fragment="content" class="content">
+
+		<div class="container3">
+			
+			<div>
+			<h1>관리자 계정 관리</h1>
+
+				<form class="">
+					<div class="form-group">
+						<label class="col-form-label mt-4" for="inputDefault">이름 </label>
+						<input type="text" class="form-control" placeholder="name"
+							id="adminName">
+					</div>
+
+
+					<div class="form-group">
+						<label class="col-form-label mt-4" for="inputDefault">생년월일
+						</label> <input type="text" id="datepicker" class="form-control">
+
+
+						<script>
+						var picker = new Pikaday({
+						    field: document.getElementById('datepicker'),
+						    format: 'D/M/YYYY',
+						    yearRange : [1900,2023],
+						    toString(date, format) {
+						        // you should do formatting based on the passed format,
+						        // but we will just return 'D/M/YYYY' for simplicity
+						        const day = date.getDate();
+						        const month = date.getMonth() + 1;
+						        const year = date.getFullYear();
+						        return `${year}/${month}/${day}`;
+						    },
+						    parse(dateString, format) {
+						        // dateString is the result of `toString` method
+						        const parts = dateString.split('/');
+						        const day = parseInt(parts[0], 10);
+						        const month = parseInt(parts[1], 10) - 1;
+						        const year = parseInt(parts[2], 10);
+						        return new Date(year, month, day);
+						    }
+						});
+						</script>
+
+					</div>
+
+					<div class="form-group">
+						<label class="col-form-label mt-4" for="inputDefault">전화번호
+						</label> <input type="text" class="form-control" placeholder="phone"
+							id="adminPhone">
+					</div>
+
+					<div class="form-group">
+						<label class="col-form-label mt-4" for="inputDefault">이메일
+						</label> <input type="email" class="form-control"
+							placeholder="name@example.com" id="adminEmail">
+					</div>
+
+					<div class="form-label mt-4">
+						<label class="form-group has-danger">패스워드</label> <input
+							type="password" class="form-control" id="floatingPassword"
+							placeholder="Password">
+					</div>
+
+					<div class="form-group has-danger" id="bbb">
+						<label class="form-label mt-4" for="floatingPassword2">패스워드
+							확인</label> <input type="password" class="form-control is-invalid"
+							id="floatingPassword2" onkeyup="passchk()" placeholder="Password">
+						<div class="invalid-feedback" id="aaa">비밀번호 불일치</div>
+					</div>
+
+			<script th:inline="javascript">  // 비밀번호 불일치 빨간박스 일치 초록박스 바꾸기 
+			function passchk() {
+
+				var password = $("#floatingPassword");
+				var password2 = $('#floatingPassword2');
+				var success = $('.form-group has-danger');
+
+				if (password.val() == password2.val()) {
+					console.log("비번 맞음");
+					document.querySelector("#bbb").className = "form-group has-success";
+					document.querySelector("#floatingPassword2").className = "form-control is-valid";
+					document.querySelector("#aaa").className = "valid-feedback";
+					document.querySelector("#aaa").innerText = "비밀번호 일치";
+				} else {
+
+				}
+
+			}
+		</script>
+
+					<br>
+					<button type="submit" class="btn btn-success">저장</button>
+					
+				</form>
+
+			</div>
+		</div>
+	
+
+	</div>
+	
+
+</body>
+
+
+
+</html>

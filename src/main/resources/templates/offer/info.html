@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout/layout}"
+>
+<head>
+
+<!-- kakaoMap key -->
+<script type="text/javascript"
+	src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=98fb16dd10fac1f048b0114b6c29ab02&libraries=services"
+></script>
+
+<!-- This CSS -->
+<link rel="stylesheet" href="/css/offerInfo.css">
+
+</head>
+
+
+<body>
+	<div layout:fragment="content" class="content">
+				<h2>TEAM1 구인 열람</h2>
+		<div class="container w-100 mt-5 mx-auto">
+
+			<div id="title_offer">
+			</div>
+			<div class="d-flex justify-content-left">
+				<div id="info_T">
+					<h4 class="card-title">작성자:</h4>
+					<p class="card-text">작성일:</p>
+				</div>
+				<div id="info_B">
+					<button class="btn btn-success list_b">목록보기</button>
+					<button class="btn btn-success apply_b">지원하기</button>
+				</div>
+			</div>
+			<hr>
+			<c:if offer="${img != '/img/' }">
+				<img class="img_offer" src="${img}">
+			</c:if>
+
+			<div id="board_O">
+				구인내용:<br>
+			</div>
+			<hr>
+
+			<div class="d-flex justify-content-left" id="board_C">
+				<input id="addr_i" type="text" value="서울역">
+				<div id="myMap"></div>
+				<div id="company">회사 정보:</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+
+
+<!-- 각 페이지의 스크립트가 작성될 위치 -->
+<th:block layout:fragment="script">
+	<script th:inline="javascript">
+	
+
+    // 취소 버튼
+    $(".list_b").click(function() {
+
+    	  window.location.href = '/offer/list'
+    })
+	
+    // 취소 버튼
+    $(".apply_b").click(function() {
+
+  	  window.location.href = '/page/myApply'
+
+    })
+	
+		$(document).ready(function() {
+	        
+			var inputData = [ $('#addr_i').val() ]
+
+			var mapContainer = document.getElementById('myMap'), mapOption = {
+				center : new kakao.maps.LatLng(37.54699, 127.09598),
+				level : 3
+			};
+			var map = new kakao.maps.Map(mapContainer, mapOption);
+			var count = 0;
+			var ps = new kakao.maps.services.Places();
+			var bounds = new kakao.maps.LatLngBounds();
+
+			if (inputData != null) {
+				kewwordSearch(inputData[count]);
+			}
+
+			function kewwordSearch(keword) {
+				ps.keywordSearch(keword, placesSearchCB);
+				count = count + 1;
+			}
+
+			function placesSearchCB(data, status, pagination) {
+				if (status === kakao.maps.services.Status.OK) {
+					displayMarker(data[0]);
+					bounds.extend(new kakao.maps.LatLng(data[0].y, data[0].x));
+					if (count < inputData.length) {
+						kewwordSearch(inputData[count]);
+					} else if (count == inputData.length) {
+						setBounds();
+					}
+				}
+			}
+
+			function displayMarker(place) {
+				var marker = new kakao.maps.Marker({
+					map : map,
+					position : new kakao.maps.LatLng(place.y, place.x),
+				});
+				kakao.maps.event.addListener(marker, 'click', function() {
+					var position = this.getPosition();
+					var url = 'https://map.kakao.com/link/map/' + place.id;
+					window.open(url, '_blank');
+				});
+			}
+
+			function setBounds() {
+				map.setBounds(bounds, 90, 30, 10, 30);
+			}
+		})
+	</script>
+</th:block>
+</html>

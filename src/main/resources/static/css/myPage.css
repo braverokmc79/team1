@@ -1,0 +1,56 @@
+
+.parent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+img {
+	width: 200px;
+	height: 200px;
+	margin-bottom: 15px;
+}
+
+.info {
+	width: 35rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.card-title {
+	text-align: center;
+	font-size: x-large;
+}
+
+.id {
+	font-size: small;
+	font-weight: normal;
+}
+
+.card-button {
+	display: flex;
+	justify-content: center;
+}
+
+.btns {
+	flex-basis: 50%;
+	color: #02b875;
+	font-weight: bold;
+	text-align: center;
+}
+
+.menu {
+	width: 35rem;
+	text-align: center;
+}
+
+.btn {
+	margin: 5px 0;
+}
+
+.toList {
+	width: 30%;
+	align-self: center;
+}
+
+

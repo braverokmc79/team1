@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Untitled</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+</head>
+
+<body class="homepage is-preload">
+
+<header th:fragment="headerFragment">
+
+<div id="page-wrapper">
+
+    <section id="header" class="header">
+        <div class="container">
+
+            <nav id="nav">
+                <ul>
+                    <li>
+	                    <h1><a th:href="@{/main/}">BRIDGE</a></h1>
+                    </li>
+                    <li>
+                        <a class="icon fa-chart-bar" th:href="@{/announce/list}"><span>공지사항</span></a>
+                        <ul>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                        </ul>
+                    </li>
+                    <li><a class="icon solid fa-cog" th:href="@{/offer/list}"><span>구인 게시판</span></a></li>
+                    <li><a class="icon solid fa-retweet" th:href="@{/review/list}"><span>후기 게시판</span></a></li>
+                    <li><a class="icon solid fa-sitemap" th:href="@{/page/myPage}"><span>마이 페이지</span></a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </section>
+
+</div>
+</header>
+</body>
+</html>

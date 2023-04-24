@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>  
+    <link rel="stylesheet" th:href="@{/css/anInfo.css}"/>
+
+</head>
+<body>
+
+<!-- Main -->
+<div layout:fragment="content" class="content">
+
+	<h3>Announce</h3>
+    <div class="parent">
+                <div class="member2">
+
+                    <div class="col-sm-5">
+                        <h2 class="title">Team1 공지사항3</h2>
+                        <div class="info">
+                            <div>
+                                <span class="id"><strong> 작성자: </strong></span><a>관리자</a><br>
+                                <span class="date"><strong> 작성일: </strong></span><a>2023/04/04</a>
+
+
+                                <a th:href="@{/announce/list}">
+                                <input type="button" value="목록보기" class="btn btn-success btn2"></a>
+                            </div>
+                            
+                        </div>
+			<hr class="divLine">
+                        <p class="textContent">
+                            <span>구인 목표와 구인 조건 ,구인장소를 공지하셔야합니다.</span><a></a><br>
+                            <span>공지사항 테스트중입니다.</span><a></a><br>
+
+                        </p>
+                    </div>
+        </div>
+
+
+    </div>
+</div>
+
+</body>
+</html>

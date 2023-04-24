@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+	<link rel="stylesheet" href="/css/myPage.css" />
+</head>
+
+<body>
+	<div layout:fragment="content" class="content">
+		
+		<div class="parent">
+		
+		 		<img src="/img/defalut_profile.jpg">
+		 		
+		 		<div class="card border-success mb-3 info">
+					<div class="card-body">
+					    <h4 class="card-title">OO님</h4>
+					    <p class="card-title id">아이디</p>
+						<p class="card-text">자기소개</p>
+						<div class="card-button">
+							<a th:href="@{/page/myPage}" class="btns">내 정보</a>
+							<a th:href="@{/message/receiveList}" class="btns">쪽지함</a>
+						</div>
+					</div>
+				</div>
+				
+				<div class="menu">
+				
+					<a th:href="@{/page/myJobOpen}">
+					<button class="btn btn-lg  btn-success col-12" type="button">내가 쓴 구인</button></a>
+					
+					<a th:href="@{/page/myReview}">
+					<button class="btn btn-lg btn-success col-12" type="button">내가 쓴 후기</button></a>
+					
+					<a th:href="@{/page/myApply}">
+					<button class="btn btn-lg btn-success col-12" type="button">내가 한 지원</button></a>
+					
+					<button class="btn btn-lg btn-success col-12" type="button">로그아웃</button>
+					
+					<a href="#">회원 탈퇴</a>
+					
+				</div>
+		 		
+	</div>
+	
+	</div>
+	
+</body>
+</html>

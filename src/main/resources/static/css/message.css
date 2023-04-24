@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+.wrapper {
+	display: flex;
+}
+
+.sidebar {
+	flex-basis: 20%;
+}
+
+.sidebar a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+	color: black;
+}
+
+.send {
+	font-weight: bold;
+	display: inline-block;
+	width: 100%;
+}
+
+.content {
+	flex-basis: 80%
+}
+
+table a {
+	text-decoration: none;
+	color: black;
+}
+
+.message {
+	margin: 10px 0px;
+}
+
+form legend {
+	font-weight: bold;
+}
+
+.content-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.search {
+	width: 40vw;
+}

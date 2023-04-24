@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+/* 중간 section 부분 마진 */
+
+.content {
+	margin: 5vw;
+}
+
+/* 페이징 처리 색 */
+
+.page-link {
+  position: relative;
+  display: block;
+  color: #02b875;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.page-item.active .page-link {
+  z-index: 3;
+  color: #fff;
+  background-color: #02b875;
+  border-color: #02b875;
+}
+
+/* 드롭다운 메뉴 active 색 */
+.dropdown-menu {
+	--bs-dropdown-link-active-bg: #02b875;
+}
+

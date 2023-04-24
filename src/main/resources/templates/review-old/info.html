@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    
+    <style>
+    .btn2{
+    float:right;
+    }
+    .member2{
+    margin:0 20% 0 20%;
+    }
+    
+    </style>
+</head>
+
+<body>
+<div layout:fragment="content" class="content">
+
+<!-- Main -->
+<section id="main">
+
+
+    <div>
+
+        <div>
+            <div>
+                <div class="member2">
+
+                    <div class="col-sm-10">
+                        <h2 class="title">리뷰 제목</h2>
+                        <div class="info">
+                            <div>
+                                <span class="id">작성자:</span><a>작성자</a><br>
+                                <span class="date">작성일:</span><a>작성일</a>
+
+                                <input type="button" value="지원하기" class="btn btn-success btn2" style="margin-left: 10px;font-size: 10pt;"></input>
+                                <input type="button" value="목록보기" class="btn btn-secondary btn2" style="font-size: 10pt;"></button>
+                            </div>
+                            <hr>
+                        </div>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwBZwiLIcO5uskk1VA9P2v8hGBi3ZX1JjJgA&usqp=CAU"
+                             class="img1" alt="">
+                        <p >
+                            <span>***님을 모델로 Team1를 이용해보았는데요 만족스러운 결과가 나와 너무 좋습니다.앞으로도 이 사이트를 자주 이용할 것같아요!</span>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+</section>
+</div>
+</body>
+</html>

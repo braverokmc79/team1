@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+<link rel="stylesheet" href="/css/pass.css">
+</head>
+<body>
+<div layout:fragment="content" class="content">
+<div class = "aaa">
+<h1>아이디/비밀번호찾기</h1>
+</div>
+<hr>
+<div class = "aaa">
+<form>
+ <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="checked" value="idSearch" >
+  <label class="btn btn-outline-primary" for="btnradio1">아이디 찾기</label>
+  <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" value="passSearch">
+  <label class="btn btn-outline-primary" for="btnradio2">비밀번호 찾기</label>	
+</div>
+			<script th:inline="javascript">  
+			$('.btn-check').on('click', function(){
+				var check = $('.btn-check:checked').val();				
+				if(check == 'idSearch'){
+					document.querySelector("#id").setAttribute("id", "name");
+					document.querySelector("#name").innerText = "이름";
+					document.querySelector("#id2").setAttribute("id", "name2");
+				}
+				else{
+					document.querySelector("#name").setAttribute("id", "id");
+					document.querySelector("#id").innerText = "아이디";
+					document.querySelector("#name2").setAttribute("id", "id2");
+				}
+				
+			});
+		</script>
+<br><br>
+<p id="name">이름 </p><input type="text" class="form-control" id="name2"><br><br>
+<p id="email">이메일 </p><input type="text" class="form-control" id="email"><br><br>
+<div class="d-grid gap-2">
+  <button class="btn btn-success confirm" type="button">확인</button>
+  <button class="btn btn-secondary listBt" type="button">취소</button>
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+#title {
+	font-size: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #888;
+}
+
+#myMap {
+	height: 500px;
+}
+
+#detail_m {
+	display: inline-block;
+}
+
+#form1 {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+
+#addr_i {
+	size: "30";
+	text-align: center;
+}
+
+#addr_b {
+	background-color: tomato;
+	border: 0;
+	color: white;
+	text-align: center;
+	width: 5vw;
+}
+
+#input_a {
+	border: 0;
+	color: white;
+	border-radius: 5px;
+	text-align: center;
+	height: 40px;
+	font-size: 20px;
+	margin-right: 20px;
+}
+
+.select-group {
+	display: flex;
+}
+
+.form-select {
+	width: 10vw;
+	margin: 0 4px 0 0;
+}
+
+#floatingTextarea2 {
+	height: 40vw;
+}
+
+.btn {
+	margin: 0 3px;
+}
+
+.maphidden{
+	display:none;
+}

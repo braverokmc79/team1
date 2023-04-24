@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+	<!-- pikaday 데이트 픽커 js -->
+	<script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+	<!-- pikaday 데이트 픽커 css -->
+	<link rel="stylesheet" type="text/css"
+		href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+	<link rel="stylesheet" href="/css/myPage.css" />
+	<!--  jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.0.slim.js" integrity="sha256-HwWONEZrpuoh951cQD1ov2HUK5zA5DwJ1DNUXaM6FsY=" crossorigin="anonymous"></script>
+	
+</head>
+
+<body>
+<div layout:fragment="content" class="content">
+
+	<h1>회원정보</h1>
+	
+	<div class="parent">
+	<img src="/img/defalut_profile.jpg">
+	
+	<div class="info">
+	<div class="form-group">
+		<label class="form-label" for="adminName">이름</label>
+		<input class="form-control" id="adminName" type="text" placeholder="이름" readonly>
+	</div>
+	
+	<div class="form-group">
+		<label class="form-label" for="datepicker">생년월일</label>
+		<input class="form-control" id="datepicker" type="text" placeholder="생년월일" readonly>
+	</div>
+	
+	<div class="form-group">
+		<label class="form-label" for="datepicker">성별</label>
+		<input class="form-control" id="datepicker" type="text" placeholder="성별" readonly>
+	</div>
+	
+	<div class="form-group">
+		<label class="form-label" for="adminName">전화번호</label>
+		<input class="form-control" id="adminName" type="text" placeholder="전화번호" readonly>
+	</div>
+	
+	<div class="form-group">
+		<label class="form-label" for="adminName">이메일</label>
+		<input class="form-control" id="adminName" type="text" placeholder="이메일" readonly>
+	</div>
+
+	<br>
+	<button type="submit" class="btn btn-secondary toList">목록으로</button>
+	
+	</div>
+	
+	</div>
+	
+</div>
+</body>
+</html>

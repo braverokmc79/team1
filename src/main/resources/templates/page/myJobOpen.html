@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/layout}">
+<head>
+	<link rel="stylesheet" href="/css/myJobOpen.css" />
+	<link rel="stylesheet" href="/css/myPage.css" />
+</head>
+
+<body>
+<div layout:fragment="content" class="content">
+	
+	<div class="parent">
+	
+ 		<img src="/img/defalut_profile.jpg">
+ 		
+ 		<div class="card border-success mb-3 info">
+			<div class="card-body">
+			    <h4 class="card-title">OO님</h4>
+			    <p class="card-title id">아이디</p>
+				<p class="card-text">자기소개</p>
+				<div class="card-button">
+					<a th:href="@{/page/myPage}" class="btns">내 정보</a>
+					<a th:href="@{/message/receiveList}" class="btns">쪽지함</a>
+				</div>
+			</div>
+		</div>
+		  
+		<br>
+		
+		<div class="myJobOpen">
+				<h2>내가 쓴 구인</h2>
+				<table class="table table-hover">
+			  <thead>
+			    <tr>
+			      <th scope="col"></th>
+			      <th scope="col">&nbsp제목</th>
+			      <th scope="col">작성일</th>
+			      
+			    </tr>
+			  </thead>
+			 <tbody>
+			     <tr>
+			      <td scope="row">Default</td>
+			      <td>Column content</td>
+			      <td>Column content</td>
+			      
+			    </tr>
+			    <tr>
+			      <td scope="row">Default</td>
+			      <td>Column content</td>
+			      <td>Column content</td>
+			      
+			    </tr>
+			    <tr>
+			      <td scope="row">Default</td>
+			      <td>Column content</td>
+			      <td>Column content</td>
+			      
+			    </tr>
+			     <tr>
+			      <td scope="row">Default</td>
+			      <td>Column content</td>
+			      <td>Column content</td>
+			      
+			    </tr>
+			    <tr>
+			      <td scope="row">Default</td>
+			      <td>Column content</td>
+			      <td>Column content</td>
+			      
+			    </tr>
+			  </tbody>
+			</table>
+		</div>
+ 		<br>
+ 		
+ 		<div class="pageTool d-flex justify-content-center">
+		  <ul class="pagination">
+			  <li class="page-item disabled">
+			    <a class="page-link" href="#">&laquo;</a>
+			  </li>
+			  <li class="page-item active">
+			    <a class="page-link" href="#">1</a>
+			  </li>
+			  <li class="page-item">
+			    <a class="page-link" href="#">2</a>
+			  </li>
+			  <li class="page-item">
+			    <a class="page-link" href="#">3</a>
+			  </li>
+			  <li class="page-item">
+			    <a class="page-link" href="#">4</a>
+			  </li>
+			  <li class="page-item">
+			    <a class="page-link" href="#">5</a>
+			  </li>
+			  <li class="page-item">
+			    <a class="page-link" href="#">&raquo;</a>
+			  </li>
+			</ul>
+		</div>
+	 		
+	</div>
+	
+</div>
+		
+</body>
+</html>
